@@ -17,24 +17,24 @@
         "img/U_orange.jpeg", "img/Z.jpg", "img/Z.jpg", "img/I.jpeg", "img/I.jpeg", "img/umuzi.png", "img/umuzi.png"];
     //cards.forEach(card => {
         //let randompos = Math.floor(Math.random() * 12) -1;
-console.log("WE're about to go in...");
-        for (let index = 0; index < cards.length; index++) {
-            let h = document.createElement('div');
-            h.classList.add("memory-card");
-            h.dataset.card = cards[ranNums[index]];
+    console.log("WE're about to go in...");
+    for (let index = 0; index < cards.length; index++) {
+        let h = document.createElement('div');
+        h.classList.add("memory-card");
+        h.dataset.card = cards[ranNums[index]];
 
-            let fimg = document.createElement("img");
-            fimg.classList.add("front");
-            fimg.src = cards[ranNums[index]];
-            h.appendChild(fimg);
+        let fimg = document.createElement("img");
+        fimg.classList.add("front");
+        fimg.src = cards[ranNums[index]];
+        h.appendChild(fimg);
 
-            let bimg = document.createElement("img");
-            bimg.classList.add("back");
-            bimg.src = "img/umuzi_logo.png";
-            h.appendChild(bimg);
+        let bimg = document.createElement("img");
+        bimg.classList.add("back");
+        bimg.src = "img/umuzi_logo.png";
+        h.appendChild(bimg);
 
-            section.appendChild(h);
-        }
+        section.appendChild(h);
+    }
         //console.log(h);
 
         //console.log(cards[randompos]);
@@ -79,7 +79,7 @@ function flipCard() {
             [flipped, lock] = [false, false];
             [first, second] = [null, null];
 
-        }, 1500);
+        }, 1000);
         }
     }
 }
@@ -91,7 +91,5 @@ function flipCard() {
 //         console.log(randompos);
 //     })
 // })();
-
-
 
 cards.forEach(card => card.addEventListener('click', flipCard));
