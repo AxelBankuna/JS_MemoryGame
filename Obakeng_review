@@ -1,0 +1,4 @@
+flexbox is great, wouldve liked to see more CSS styling used for background, better card images and other aesthetics.
+Aligning game to the center on Css...align: center;(i prefer a more centered screen)
+Add instructions or alerts that informs a user if they done or other aspects tha affect the game i.e ("You have matched all cards")
+Use location.reload(); to automatically restart your game once all cards are matched as apposed to refreshing the web page manually.
