@@ -1,8 +1,6 @@
-
-
-(function loadCards() 
+(function loadCards()
 {
-    var nums = [0,1,2,3,4,5,6,7,8,9,10,11],
+    let nums = [0,1,2,3,4,5,6,7,8,9,10,11],
         ranNums = [],
         i = nums.length,
         j = 0;
@@ -52,31 +50,28 @@
     for (let index = 0; index < cards.length; index++) 
     {
         /** create a div then add to the div; a class named memory-card as well as a dataset of the card's filename **/
-        let h = document.createElement('div');
-        h.classList.add("memory-card");
-        h.dataset.card = cards[ranNums[index]];
+        let cardDiv = document.createElement('div');
+        cardDiv.classList.add("memory-card");
+        cardDiv.dataset.card = cards[ranNums[index]];
 
         /** create an image tag then add to the tag a class named front and the source of the image **/
-        let fimg = document.createElement("img");
-        fimg.classList.add("front");
-        fimg.src = cards[ranNums[index]];
+        let frontImage = document.createElement("img");
+        frontImage.classList.add("front");
+        frontImage.src = cards[ranNums[index]];
         /** make the image tag as a child of the div **/
-        h.appendChild(fimg);
+        cardDiv.appendChild(frontImage);
 
         /** create an image tag then add to the tag a class named back and the source of the image **/
-        let bimg = document.createElement("img");
-        bimg.classList.add("back");
-        bimg.src = "img/umuzi_logo.png";
+        let backImage = document.createElement("img");
+        backImage.classList.add("back");
+        backImage.src = "img/umuzi_logo.png";
         /** make the image tag as a child of the div **/
-        h.appendChild(bimg);
+        cardDiv.appendChild(backImage);
 
         /** make the memory-card div a child of the memory-game div **/
-        section.appendChild(h);
+        section.appendChild(cardDiv);
     }
-        //console.log(h);
-
-        //console.log(cards[randompos]);
-    //});
+    
     /** once all cards have been loaded, add div memory-game a child of section **/
     document.body.appendChild(section);
     console.log(cards);
@@ -144,14 +139,6 @@ function flipCard()
         }
     }
 }
-
-// (function shuffle() {
-//     cards.forEach(card => {
-//         let randompos = Math.floor(Math.random() * 12);
-//         card.style.order = randompos;
-//         console.log(randompos);
-//     })
-// })();
 
 /** attach a click event to all divs we stored in cards variable and run flipcard function on that div if it's clicked on **/
 cards.forEach(card => card.addEventListener('click', flipCard));
