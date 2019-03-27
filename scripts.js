@@ -1,4 +1,7 @@
-(function loadCards() {
+
+
+(function loadCards() 
+{
     var nums = [0,1,2,3,4,5,6,7,8,9,10,11],
         ranNums = [],
         i = nums.length,
@@ -13,7 +16,8 @@
     * */
 
     /*******   ranNums   *******/
-    while (i--) {
+    while (i--) 
+    {
         j = Math.floor(Math.random() * (i+1));
         ranNums.push(nums[j]);
         nums.splice(j,1);
@@ -45,7 +49,8 @@
     for-loop to load and shuffle cards.
     **/
 
-    for (let index = 0; index < cards.length; index++) {
+    for (let index = 0; index < cards.length; index++) 
+    {
         /** create a div then add to the div; a class named memory-card as well as a dataset of the card's filename **/
         let h = document.createElement('div');
         h.classList.add("memory-card");
@@ -91,18 +96,24 @@ let lock = false;
 let flipped = false;
 let first, second;
 
-function flipCard() {
+function flipCard() 
+{
     /** exit function if more than two cards are clicked in a turn **/
+
     if (lock)
         return;
 
     /** add the flip class to the div of the card that's been clicked. **/
+
     this.classList.toggle('flip');
 
     /** if current card is first card; add the card's div to 'this' **/
-    if (!flipped){
+
+    if (!flipped)
+    {
         flipped = true;
         first = this;
+
     } else { /** exit function if a card is clicked more than once in a turn **/
         if (this === first)
             return;
@@ -112,8 +123,10 @@ function flipCard() {
         second = this;
 
         /** if cards match in a turn, remove eventListener from those cards **/
+
         console.log(first.dataset.card + " vs " + second.dataset.card);
-        if (first.dataset.card === second.dataset.card){
+        if (first.dataset.card === second.dataset.card)
+        {
             console.log("They're a match!!!");
             first.removeEventListener('click', flipCard);
             second.removeEventListener('click', flipCard);

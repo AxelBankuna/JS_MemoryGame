@@ -5,26 +5,32 @@
 }
 
 body {
-    height: 100vh;
-    background-color: blue;
+    height: 80vh;/*changed from 100vh, this fixed the jitter*/
+    background-color: #ccd6d2;/*changed for color pallete*/
+    margin-left: 25%;/*change addition*/
+    margin-top: 5%;/*change addition*/
 }
 
 .memory-game {
-    width: 640px;
-    height: 640px;
+    width: 540px;/*changed from 640px, this fixxed the jitter*/
+    height: 540px;/*changed from 640px, this fixxed the jitter*/
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid lime;
-    perspective: 100px;
+    /*border: 2px solid #141414;  took the border out for a box shodow */
+    perspective: 500px;/*change from 100px*/
+    border-radius: 2px;/*change addition*/
+    box-shadow: 15px 15px 20px 10px #1d1d1d;/*addition box shadow*/
+    background: #4b4b4b;/*addition background color for the board*/
 }
 
 .memory-card {
     width: 25%;
     height: 33%;
     position: relative;
-    border: 2px solid aqua;
+    border: 2px solid #48c287;/*changed for color pallete*/
+    border-radius: 2px;/*changed from 5px for uniformity*/
     transform-style: preserve-3d;
-    transition: transform.5s;
+    transition: transform 0.5s;
 }
 
 .front,
@@ -32,14 +38,14 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    border: 2px solid deeppink;
-    border-radius: 5px;
-    background: blue;
+    /*border: 2px solid #bb0707; commented this out for color pallete*/
+    border-radius: 2px;/*change from 5px for uniformitty*/
+    background: #1d1d1d;/*changed for color pallete*/
     backface-visibility: hidden;
 }
 
 .front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);/* changed from 180deg for flip and reverse flip*/
 }
 
 .memory-card.flip {
