@@ -6,7 +6,7 @@
 
 body {
     height: 80vh;/*changed from 100vh, this fixed the jitter*/
-    background-color: #ccd6d2;/*changed for color pallete*/
+    background-color: #d0dbd7;/*changed for color pallete*/
     margin-left: 25%;/*change addition*/
     margin-top: 5%;/*change addition*/
 }
