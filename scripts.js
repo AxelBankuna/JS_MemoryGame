@@ -102,6 +102,7 @@ function flipCard()
 
     this.classList.toggle('flip');
 
+
     /** if current card is first card; add the card's div to 'this' **/
 
     if (!flipped)
@@ -110,8 +111,9 @@ function flipCard()
         first = this;
 
     } else { /** exit function if a card is clicked more than once in a turn **/
-        if (this === first)
-            return;
+        if (this === first){
+            [flipped, first] = [null, null];
+            return;}
 
         /** if current card is second card, reset flipped variable and set second to 'this' **/
         flipped = false;
