@@ -1,0 +1,11 @@
+line 3: created a new function that creates an array that ranges from 0 to the number taken from the user.
+
+line 2: created a variable who's value is equal to the users input.
+
+line 19: ran into a bug that kept on loading more <section> tags with game tiles and I had top create a function that checks if the queries the dom for section tag with id:memory-game, if the nodelist returned had a value less than 0 then run loadCards() else get section with id:memory-game, removed said section from the dom and ran our loadCards().
+
+line 43: added the array created dynamically with users input.
+
+line 121: added id:memory-game to section so I could use "variable.parentNode.removeChild(variable)" which seems(further testing needed) only works on elements with id not class.
+
+line 193: created a function that adds an eventlistener to the all game cards and runs flipCard() when the cards are clicked.

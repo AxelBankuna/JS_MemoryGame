@@ -1,6 +1,46 @@
-(function loadCards()
+/** Michael: generating an array from the number which was input by the user **/
+let userLevel = document.getElementById('levelInput').value;
+
+function createArray(){
+    if (userLevel >= 2 && userLevel < 13 && userLevel % 2 === 0) {
+        const fillRange = (start, end) => {
+        return Array(end - start + 1).fill().map((item, index) => start + index);
+        };
+
+        var makeArray = fillRange(0, userLevel - 1);
+    } /**else {
+        window.alert("Try again bishhhhhhhhhhh");
+    }**/
+
+    //console.log(makeArray);
+    return makeArray;
+};
+
+function resetCards () {
+    
+    //Michael: added id to the main section tag to target a bug in the game.
+var getLength = document.querySelectorAll("#memory-game");
+
+ if(getLength.length < 1){
+        loadCards();
+    } 
+    else {
+        
+        var getSection = document.getElementById("memory-game");
+
+        getSection.parentNode.removeChild(getSection);
+
+        loadCards();
+    };  
+}; 
+
+function loadCards()
 {
-    let nums = [0,1,2,3,4,5,6,7,8,9,10,11],
+  //  var getSection = document.getElementById("memory-game");
+ // getSection.parentNode.removeChild(getSection);
+
+        /**Michael: added the array created dynamically with users input**/
+        let nums = createArray(),
         ranNums = [],
         i = nums.length,
         j = 0;
@@ -19,10 +59,10 @@
         j = Math.floor(Math.random() * (i+1));
         ranNums.push(nums[j]);
         nums.splice(j,1);
-    }
+    };
 
     /*
-    Creaate an HTML section and add the class
+    Create an HTML section and add the class
     memory-game to section.
     * */
 
@@ -38,15 +78,15 @@
 
     let cards = ["img/U_black.png", "img/U_black.png", "img/M.jpeg", "img/M.jpeg", "img/U_orange.jpeg",
         "img/U_orange.jpeg", "img/Z.jpg", "img/Z.jpg", "img/I.jpeg", "img/I.jpeg", "img/umuzi.png", "img/umuzi.png"];
-    //cards.forEach(card => {
-        //let randompos = Math.floor(Math.random() * 12) -1;
     console.log("WE're about to go in...");
 
+    /**Michael**/
+    cards.length = userLevel;
+    //console.log(cards); 
 
     /*
     for-loop to load and shuffle cards.
     **/
-
     for (let index = 0; index < cards.length; index++) 
     {
         /** create a div then add to the div; a class named memory-card as well as a dataset of the card's filename **/
@@ -68,17 +108,21 @@
         /** make the image tag as a child of the div **/
         cardDiv.appendChild(backImage);
 
-        /** make the memory-card div a child of the memory-game div **/
+        /** make the meomry-card div a child of the memory-game div **/
         section.appendChild(cardDiv);
     }
     
     /** once all cards have been loaded, add div memory-game a child of section **/
     document.body.appendChild(section);
     console.log(cards);
-})();
+
+    cardSelector()
+
+    var sectionId = document.getElementsByTagName("section")[0].setAttribute("id", "memory-game");
+};
 
 /** get all elements in the documents with a class name of memory-card and store in cards variable **/
-const cards = document.querySelectorAll('.memory-card');
+//const cards = document.querySelectorAll('.memory-card');
 
 
 /*
@@ -141,6 +185,12 @@ function flipCard()
         }
     }
 }
+/**Michael: Added an event listeners that runs loadCards fubction on click **/
+//document.getElementById('submit').addEventListener('click', loadCards);
 
 /** attach a click event to all divs we stored in cards variable and run flipcard function on that div if it's clicked on **/
-cards.forEach(card => card.addEventListener('click', flipCard));
+
+ function cardSelector(){
+    document.querySelectorAll('.memory-card').forEach(card => card.addEventListener('click', flipCard));
+    console.log("I'm here.");
+};
