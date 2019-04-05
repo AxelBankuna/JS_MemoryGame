@@ -1,4 +1,4 @@
-/** Michael: generating an array from the number which was input by the user **/
+/** Michael: codeblock starts**/
 let userLevel = document.getElementById('levelInput').value;
 
 function createArray(){
@@ -9,19 +9,16 @@ function createArray(){
 
         var makeArray = fillRange(0, userLevel - 1);
     } /**else {
-        window.alert("Try again bishhhhhhhhhhh");
-    }**/
+        window.alert("Try again.</br> Only even number between 2 and 12. ");
+    };**/
 
-    //console.log(makeArray);
     return makeArray;
 };
 
 function resetCards () {
-    
-    //Michael: added id to the main section tag to target a bug in the game.
-var getLength = document.querySelectorAll("#memory-game");
+    var getLength = document.querySelectorAll("#memory-game");
 
- if(getLength.length < 1){
+    if(getLength.length < 1){
         loadCards();
     } 
     else {
@@ -33,6 +30,7 @@ var getLength = document.querySelectorAll("#memory-game");
         loadCards();
     };  
 }; 
+/** Michael: codeblock ends**/
 
 function loadCards()
 {
@@ -80,9 +78,8 @@ function loadCards()
         "img/U_orange.jpeg", "img/Z.jpg", "img/Z.jpg", "img/I.jpeg", "img/I.jpeg", "img/umuzi.png", "img/umuzi.png"];
     console.log("WE're about to go in...");
 
-    /**Michael**/
+    /**Michael: set card length to the value of the users input.**/
     cards.length = userLevel;
-    //console.log(cards); 
 
     /*
     for-loop to load and shuffle cards.
