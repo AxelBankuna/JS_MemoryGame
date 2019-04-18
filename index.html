@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body> 
-	<div id="userInput">
-    	<input type="number" id="levelInput"  min="2" max="12" required>
-    	<button id="submit" onclick="resetCards()">submit</button>
+	<div id="userInput" style="margin-bottom: 5px;">
+    	<input id="levelInput" onfocus="this.value =''"  min="2" max="12"  required>
+    	<button id="submit" onclick="resetCards();">submit</button> <br>
+        <p>please enter even numbers: 2 to 12</p>
     </div>
 <script src="scripts.js"></script>
 <!--- <script>cardSelector();</script> -->
